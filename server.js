@@ -19,7 +19,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use (express.static(__dirname + "/public"))
 app.use(helmet())
 
-const mongoUri = process.env.MONGO_URI || 'mongodb://localhost:27017'
+const mongoUri = process.env.MONGO_URI
 const client = new mongodb.MongoClient(mongoUri)
 let userCollection;
 
@@ -255,7 +255,7 @@ app.post('/forgot-password', async (req, res) => {
                 html: `<p>Your password reset token is:</p><h3>${resetToken}</h3>`,
             };
             sgMail.send(msg).then(() => {
-                res.status(400).send("Email sent successfully.")    
+                res.json({success: true, message: 'Email sent successfully!'})  
             })
         } else {
             res.status(400).send("Email is not registered.")
