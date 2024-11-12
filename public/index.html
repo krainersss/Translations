@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Welcome!</h1>
+    <form action="/login" method="post" id="loginForm" autocomplete="on">
+        <label for="email">Username: </label><br><input type="email" id="email" placeholder="Email as Username" required autocomplete="off"><br>
+        <p id="emailError"></p><br>
+        <label for="password">Password: </label><br><input type="password" id="password" required><br>
+        <p id="passwordError"></p><button id="togglePassword" type="button">View</button><br>
+        <p id="formError"></p>
+        <button type="submit">Submit</button><br>
+        <a href="forgot_password.html">Forgot Password?</a>
+        <br>
+        <a href="sign_up.html">Sign up</a>
+    <script src="login.js"></script>
+    </form>
+</body>
+</html>

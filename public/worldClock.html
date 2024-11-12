@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>World Clock</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body{
+            box-sizing: border-box;
+            margin:0
+        }
+        .box{
+            text-align: center;
+        }
+        p{
+            color:black;
+            font-size: 18px;;
+        }
+        select, input{
+            margin:10px;
+            font-size: 20px;
+            border-radius: 10px;
+        }
+        select{
+            padding:5px;
+            margin-bottom: 20px;
+        }
+        label{
+            font-size: 15px;
+        }
+        select:hover{
+            background-color: rgb(224, 222, 222);
+        }
+        nav, a{
+            text-align: left;
+            background-color: grey;
+            color:white;
+            min-width:100%;
+            text-decoration: none;
+            font-size: 20px;
+            padding:20px 15px;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <p>
+        <a href="dashboard.html">Home</a>
+        <a href="caseConverter.html">Case Converter</a>
+        <a href="Time_to_word.html">Time to Word</a>
+        
+        </p>
+    </nav>
+    <div class="box">
+    <h1>World Clock</h1>
+    <p>Welcome to world clock! Type any capital cities for their clock to show up</p>
+    <div>
+        <h1 id="city"></h1>
+        <h1 id="display"></h1>
+    </div>
+    <br>
+    <select id="continent">
+        <option>Select a continent</option>
+        <option id="asia">Asia</option>
+        <option id="europe">Europe</option>
+        <option id="america">America</option>
+        <option id="africa">Africa</option>
+    </select>
+    <br>
+    <label for="capital">Enter the capital here</label><br>
+    <input type="text" id="capital" oninput="Capitalize()" style="padding:5px; font-size: 20px;" autocomplete="off" ><br>
+    <button onclick="Clock()">Enter</button>
+    <script src="worldClock.js"></script>
+</div>
+</body>
+</html>

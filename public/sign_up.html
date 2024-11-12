@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Sign Up</h1>
+    <form id="signupForm" action="/signup" method="post" class="form-container">
+        <label for="fname">First Name:</label><br> <input type="text" id="fname" required ><br>
+        <label for="lname">Last Name:</label><br> <input type="text" id="lname" required ><br>
+        <label for="email_inp">Email:</label><br> <input type="email" id="email_inp" required ><br>
+        <label for="pw_inp">Enter Your Password</label><br><input type="password" id="pw_inp" required min="8"><br>
+        <label for="pw_confirm">Confirm Password</label><br><input type="password" id="pw_confirm" required min="8" max="50" ><br>
+        <p id="error"></p>
+        <button type="submit" id="submit_button">Submit</button><br>
+        <a href="index.html">Back to Login</a>
+        <script src="signup.js"></script>
+    </form>
+</body>
+</html>

@@ -1,0 +1,35 @@
+*{
+    font-family:monospace;
+    box-sizing: border-box;
+}
+h1 {
+  text-align: center;
+  margin-top: 30px;
+  font-size: 40px;
+}
+
+form {
+  border: 2px solid rgb(192, 192, 192);
+  border-radius: 15px;
+  margin: auto;
+  padding: 50px;
+  max-width: 200px;
+}
+
+form label,
+input,
+button,
+a {
+  margin: 7px;
+}
+
+button {
+    margin-bottom: 10px;
+}
+form input{
+    font-size: larger;
+}
+p{
+    color: red;
+    margin:3px;
+}

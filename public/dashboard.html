@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        *{
+            padding:10 10 0 10px;
+        }
+        #logout{
+            border-style: solid;
+            border-spacing: 5px;
+        }
+        h1 {
+            text-align: center;
+            font-size: 40px;
+        }
+        a{
+            text-decoration: none;
+            color:black;
+            padding-left: 10px;
+        }
+        #article{
+            float:left;
+            width:90%;
+            padding: 20px;
+            border-style:solid;
+            margin-left:40px;
+            margin-bottom: 20px;
+        }
+        #article:hover{
+            background-color: rgb(196, 193, 193);
+        }
+        h2{
+            font-size: 23px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Woah You're here <span id="userEmail"></span></h1>
+
+    <h2 style="padding:5px;font-size:30px; width: 90%;">Check This out</h2>
+
+    <a href="Time_to_word.html">
+    <div id="article">
+        <h2>Time to word translation</h2>
+    </div>
+</a>
+<a href="caseConverter.html">
+    <div id="article">
+        <h2>Case Converter</h2>
+    </div>
+</a>
+<a href="worldClock.html">
+    <div id="article">
+        <h2>World Clock</h2>
+    </div>
+</a>
+
+    <a id="logoutLink">
+    <div id="article" style="font-size: smaller;background-color: rgb(175, 175, 175);">
+        <h2>Logout</h2>
+    </div>
+</a>
+
+
+</body>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        fetchUserDetails()
+    })
+
+    async function fetchUserDetails() {
+        try {
+            const response = await fetch("/user-details", {credentials: "include"})
+            if (!response.ok) {
+                throw new Error("Failed to fetch user details")
+            }
+            const data = await response.json()
+            if (data.success) {
+                document.getElementById("userEmail").textContent = (data.user.email).replace("@gmail.com", "")
+            } else {
+                console.error("Failed to fetch user details", data.message)
+            }
+        } catch (error) {
+            console.error("Error fetching user details: ", error)
+        }
+    }
+
+    document.getElementById("logoutLink").addEventListener("click", () => {
+        event.preventDefault()
+        performLogout()
+    })
+
+    async function performLogout() {
+        try {
+            const response = await fetch("/logout", {
+                method: "POST",
+                credentials: "include"
+            })
+            if (response.ok) {
+                window.location.href = "index.html"
+            }
+        } catch (error) {
+            consol.error("Error during logout:", error)
+        }
+    }
+</script>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time to Word</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body{
+            box-sizing: border-box;
+            margin:0
+        }
+        .box{
+            text-align: center;
+        }
+        .Title{
+            padding-top: 40px;
+            font-size: 57px;
+        }
+        input{
+            border-radius: 25px;
+            border-style: solid 5px;
+            font-size: 50px;
+        }
+        button{
+            font-size: 30px;
+            padding: 15px 20px;
+            border-radius: 5px;
+        }
+        button:hover{
+            background-color: rgb(155, 153, 153);
+        }
+        h3{
+            font-size: 20px;
+        }
+        nav, a{
+            text-align: left;
+            background-color: grey;
+            color:white;
+            min-width:100%;
+            text-decoration: none;
+            font-size: 20px;
+            padding:20px 15px;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <p>
+        <a href="dashboard.html">Home</a>
+        <a href="caseConverter.html">Case Converter</a>
+        <a href="worldClock.html">World Clock</a>
+        </p>
+    </nav>
+    <div class="box">
+        <div class="Title">
+            <b>Time to Words Calculator</b>
+        </div>
+        <div id="translate">
+            <input type="text" id="Time" maxlength="4" style="text-align: center;" disabled>
+            <br>
+            <h3 id="wordhour" ></h3><h3 id="error" style="color:red"></h3><h3 id="wordmin" ></h3><br>
+            <button onclick="copyText()">Copy Text</button>
+            <br>
+            <button onclick="entry('1')">1</button>
+            <button onclick="entry('2')">2</button>
+            <button onclick="entry('3')">3</button>
+            <button onclick="entry('4')">4</button>
+            <button onclick="entry('5')">5</button><br>
+            <button onclick="entry('6')">6</button>
+            <button onclick="entry('7')">7</button>
+            <button onclick="entry('8')">8</button>
+            <button onclick="entry('9')">9</button>
+            <button onclick="entry('0')">0</button><br>
+            <button onclick="clearAllText()">CC</button>
+            <button onclick="Translation()" style="background-color: rgb(113, 108, 108); color:white;">Translate</button>
+            <button onclick="clearText()">C</button>
+            <script src="TimeToWord.js"></script>
+        </div>    
+        </div>
+</body>
+</html>
