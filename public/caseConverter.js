@@ -56,20 +56,6 @@ function copyText() {
     });
 }
 
-function SentenceCase() {
-    var text = user.value;
-    // Split text by periods followed by space to handle multiple sentences
-    var sentences = text.split('. ');
-    
-    // Capitalize the first letter of each sentence
-    for (var i = 0; i < sentences.length; i++) {
-        // Trim any extra spaces at the beginning of the sentence
-        sentences[i] = sentences[i].charAt(0).toUpperCase() + sentences[i].slice(1).toLowerCase();
-    }
-    
-    // Rejoin the sentences, ensuring the period is included at the end of each
-    result.value = sentences.join('. ') + (text.endsWith('.') ? '.' : ''); // Add period if input ends with one
-}
 
 function cc(){
     user.value = ""
