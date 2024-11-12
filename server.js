@@ -27,7 +27,7 @@ async function connectToDatabase() {
     try {
         await client.connect()
         console.log("Connected to MongoDB")
-        const database = client.db("Project")
+        const database = client.db("allyza")
         userCollection = database.collection("users")
     } catch (error) {
         console.error("Failed to connect to MongoDB", error)
