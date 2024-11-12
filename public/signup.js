@@ -36,7 +36,7 @@ document.getElementById('signupForm').addEventListener('submit', function(event)
         alert('Passwords do not match. Please try again.');
         return;
     }
-    fetch(this.action, {
+    fetch("/signup", {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({inp_email: email, inp_password: a_password})
