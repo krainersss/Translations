@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case Converter</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body{
+            box-sizing: border-box;
+            margin:0
+        }
+        .box{
+            text-align: center;
+        }
+        label, button, textarea{
+            font-size: 25px;
+        }
+        textarea {
+            width: 50%;
+            min-height: 10px;
+            max-width: 60%;
+            resize: both; 
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+            padding: 3px;
+            border-radius: 5px;
+            border: solid 2px
+        }
+        button{
+            padding: 15px 20px;
+            border-radius: 5px;
+        }
+        button:hover{
+            background-color: rgb(155, 153, 153);
+        }
+        nav, a{
+            text-align: left;
+            background-color: grey;
+            color:white;
+            text-decoration: none;
+            font-size: 20px;
+            padding:13px 9px;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <p>
+        <a href="dashboard.html">Home</a>
+        <a href="Time_to_word.html">Time to Word</a>
+        <a href="worldClock.html">World Clock</a>
+        </p>
+    </nav>
+    <div class="box">
+    <h1>Case Converter</h1>
+    <label for="userInp">Type here</label>
+    <br>
+    <textarea id="userInp" oninput="autoResize(this)" autocomplete="off"></textarea>
+    <br>
+    <label for="result">Result</label>
+    <br>
+    <textarea id="result" readonly></textarea>
+    <br>
+    <button onclick="copyText()">Copy Text</button>
+    <button onclick="cc()">cc</button>
+    <br>
+    <button onclick="Uppercase()">Upper case</button>
+    <button onclick="Lowercase()">Lower case</button>
+    <button onclick="Capitalize()">Capitalize</button>
+    <br>
+    <button onclick="Alternate()">AlTeRnAtE TeXt</button>
+    <button onclick="Inverse()">Inverse Text</button>
+    
+    
+</div>
+    <script src="caseConverter.js"></script>
+    
+</body>
+</html>
