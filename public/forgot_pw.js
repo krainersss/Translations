@@ -9,6 +9,7 @@ let form = document.getElementById("form").addEventListener(submit, (event) => {
     .then(response => response.json())
     .then(data => {
         if (data.success) {
+            alert("Email sent Successfully!")
             window.location.href = "reset-password.html"
         } else {
             alert("An error occured")
