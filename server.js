@@ -19,7 +19,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use (express.static(__dirname + "/public"))
 app.use(helmet())
 
-const mongoUri = process.env.MONGO_URI || 'mongodb://localhost:27017'
+const mongoUri = process.env.MONGO_URI
 const client = new mongodb.MongoClient(mongoUri)
 let userCollection;
 
