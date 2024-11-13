@@ -195,10 +195,10 @@ app.post("/signup", async (req, res) => {
 })
 
 app.post('/reset-password', async (req, res) => {
-    const {input_token, new_password} = req.body;
+    const {resetKey, newPassword} = req.body;
     try {
         const user = await userCollection.findOne({
-            token: input_token,
+            token: resetKey,
             createdAt: {$gt: new Date()}
         })
         if (!user) {    
@@ -206,7 +206,7 @@ app.post('/reset-password', async (req, res) => {
             return
         }
         
-        const hashed_password = hashPassword(new_password)
+        const hashed_password = hashPassword(newPassword)
         const update_mongo = await userCollection.updateOne(
             {_id: user._id},
             {
@@ -230,10 +230,7 @@ app.post('/reset-password', async (req, res) => {
 
 app.post('/forgot-password', async (req, res) => {
     const { email } = req.body;
-    if (!email) {
-        return res.status(400).send('Email is required')
-    }
-    
+
     try {
         const resetToken = generateRandomString(32)
 
@@ -255,13 +252,13 @@ app.post('/forgot-password', async (req, res) => {
                 html: `<p>Your password reset token is:</p><h3>${resetToken}</h3>`,
             };
             sgMail.send(msg).then(() => {
-                res.json({success: true, message: 'Email sent successfully!'})  
+                res.json({success: true, message: "Email sent!"})   
             })
         } else {
-            res.status(400).send("Email is not registered.")
+            res.json({success: false, message: "Email is not registered"})
         }
     } catch (error) {
-        res.status(500).send('Error finding or updating token ' + error)
+        res.json({success: false, message: "Error in server" + error})
     }
 });
 
